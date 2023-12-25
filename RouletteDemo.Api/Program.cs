@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using RouletteDemo.Api.Data;
-using RouletteDemo.Api.Data.Interfaces;
+using RouletteDemo.Api.Interfaces;
 using RouletteDemo.Api.Middlewares;
+using RouletteDemo.Api.Models;
 using RouletteDemo.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +19,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<IRouletteService, RouletteService>();
-builder.Services.AddScoped<IDataProcessor, DataProcessor>();
+builder.Services.AddScoped<IRepository<Bet>, EntityRepository<Bet>>();
+builder.Services.AddScoped<IRepository<Spin>, EntityRepository<Spin>>();
 builder.Services.AddTransient<GlobalExceptionHandlingMiddleware>();
 
 var app = builder.Build();
