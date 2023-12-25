@@ -7,7 +7,7 @@
 
 ## Stack
 - <b>.NET 7</b>
-- <b>.Entity Framework 7</b>
+- <b>Entity Framework 7</b>
 - <b>Sqlite</b>
 
 
